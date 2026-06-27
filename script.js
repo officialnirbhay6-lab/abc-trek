@@ -18,6 +18,39 @@ let bookingState = {
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Force Autoplay for Videos (esp. on Mobile browsers)
+    const forceAutoplayVideos = () => {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.setAttribute('muted', '');
+            video.setAttribute('playsinline', '');
+            video.muted = true;
+            video.playsInline = true;
+            
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Fail silently, retry on interaction
+                });
+            }
+        });
+    };
+
+    // Run immediately
+    forceAutoplayVideos();
+
+    // Trigger play on first gesture (scrolling, clicking, touching) to unlock media engine
+    const gestureEvents = ['touchstart', 'scroll', 'click', 'keydown'];
+    const handleFirstGesture = () => {
+        forceAutoplayVideos();
+        gestureEvents.forEach(eventType => {
+            document.removeEventListener(eventType, handleFirstGesture);
+        });
+    };
+    gestureEvents.forEach(eventType => {
+        document.addEventListener(eventType, handleFirstGesture, { passive: true });
+    });
+
     // 1. Initialize Date Input - Set Minimum Date to Tomorrow
     const dateInput = document.getElementById('trek-date');
     if (dateInput) {
