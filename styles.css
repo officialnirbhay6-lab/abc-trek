@@ -339,9 +339,15 @@ img {
 
 @media (max-width: 992px) {
     .navbar {
+        background-color: transparent !important;
+        border-bottom: 1px solid transparent !important;
+        padding: 10px 0 !important;
+    }
+
+    .navbar.scrolled,
+    .navbar.menu-open {
         background-color: var(--bg-secondary) !important;
         border-bottom: 1px solid var(--border-color) !important;
-        padding: 10px 0 !important;
     }
     
     .nav-container {
@@ -571,6 +577,25 @@ img {
     }
     .hero-badge {
         padding: 6px 14px;
+    }
+    
+    /* Minimize gap between Showcase and Map on mobile */
+    #trail-showcase {
+        padding: 40px 0 !important;
+    }
+    .route-map {
+        padding-top: 20px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    /* Prevent image crop above The Adventure Awaits */
+    .overview-img-container {
+        height: auto !important;
+    }
+    .overview-img {
+        height: auto !important;
+        width: 100% !important;
+        object-fit: contain !important;
     }
 }
 

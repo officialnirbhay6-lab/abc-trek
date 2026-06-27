@@ -66,9 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
     if (menuToggle && navMenu) {
+        const navbar = document.querySelector('.navbar');
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('open');
             menuToggle.classList.toggle('active');
+            if (navbar) navbar.classList.toggle('menu-open');
             
             // Toggle hamburger animation
             const bars = menuToggle.querySelectorAll('.bar');
@@ -88,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('open');
                 menuToggle.classList.remove('active');
+                if (navbar) navbar.classList.remove('menu-open');
                 menuToggle.querySelectorAll('.bar').forEach(bar => bar.style.transform = 'none');
                 menuToggle.querySelectorAll('.bar')[1].style.opacity = '1';
             });
