@@ -1764,12 +1764,164 @@ img {
     line-height: 1.5;
 }
 
+@media (max-width: 768px) {
+    /* Hide the non-essential info clutter on mobile so the user goes straight to the booking card */
+    .booking-info-panel .included-services,
+    .booking-info-panel .booking-testimonial {
+        display: none;
+    }
+    
+    .booking-wrapper {
+        gap: 24px;
+    }
+    
+    .booking-info-panel {
+        text-align: center;
+    }
+    
+    .booking-info-panel .section-subtitle,
+    .booking-info-panel .section-title,
+    .booking-info-panel .booking-intro-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .booking-info-panel .booking-intro-text {
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+    }
+}
+
 @media (max-width: 480px) {
     .booking-card {
-        padding: 24px;
+        padding: 20px 16px !important;
+        border-radius: var(--border-radius-md);
     }
+    
     .booking-progress {
         margin-bottom: 24px;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+    
+    .progress-step {
+        width: auto;
+    }
+    
+    .step-num {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+        margin-bottom: 4px;
+    }
+    
+    .step-lbl {
+        font-size: 0.7rem;
+    }
+    
+    .step-title {
+        font-size: 1.25rem !important;
+        margin-bottom: 16px !important;
+    }
+    
+    /* Keep date and count side-by-side to save space and look unified */
+    .booking-step .grid.grid-2 {
+        display: grid !important;
+        grid-template-columns: 1.1fr 0.9fr !important;
+        gap: 10px !important;
+    }
+    
+    .form-group {
+        margin-bottom: 16px !important;
+    }
+    
+    .form-label {
+        font-size: 0.8rem !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .form-input {
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .form-hint {
+        font-size: 0.7rem !important;
+        margin-top: 4px !important;
+    }
+    
+    /* Package options padding reduction */
+    .package-option {
+        padding: 14px 16px !important;
+    }
+    
+    .pack-name {
+        font-size: 0.95rem !important;
+    }
+    
+    .pack-price {
+        font-size: 0.95rem !important;
+    }
+    
+    .pack-desc {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Addon list */
+    .addons-list {
+        gap: 8px !important;
+    }
+    
+    .addon-item {
+        padding: 10px 12px !important;
+    }
+    
+    .addon-name {
+        font-size: 0.8rem !important;
+    }
+    
+    .addon-price {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Pricing Summary */
+    .pricing-summary {
+        padding: 16px !important;
+        margin-bottom: 20px !important;
+        border-radius: var(--border-radius-sm) !important;
+    }
+    
+    .price-row {
+        font-size: 0.8rem !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .price-row.total-row {
+        font-size: 0.95rem !important;
+        padding-top: 10px !important;
+        margin-top: 10px !important;
+    }
+    
+    /* Buttons layout */
+    .step-actions {
+        margin-top: 16px !important;
+    }
+    
+    .step-actions .btn {
+        padding: 10px 16px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .booking-options {
+        gap: 10px !important;
+        margin-top: 12px !important;
+    }
+    
+    .booking-options .btn {
+        padding: 12px 16px !important;
+        font-size: 0.85rem !important;
     }
 }
 
